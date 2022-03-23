@@ -15,13 +15,13 @@ module.exports = function(grunt) {
       throw 'No browser specified. Should be one of: ' + BROWSERS;
     }
     if (!instanceUrl) {
-      throw 'No instance provided, such as "https://trot.to"';
+      throw 'No instance provided, such as "https://go.limhenry.xyz"';
     }
   } catch (e) {
     grunt.log.error(e);
 
     grunt.fail.warn('Encountered error. Example usage:' +
-        ' yarn dev --edition=production --browser=chrome --instance=https://trot.to');
+        ' yarn dev --edition=production --browser=chrome --instance=https://go.limhenry.xyz');
   }
 
   const outputDir = `dists/dist_${edition}_${browser}/`;

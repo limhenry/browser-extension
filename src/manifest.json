@@ -19,14 +19,14 @@
     "webRequest",
     "webRequestBlocking",
     "*://go/*",
-    "*://*.trot.to/*"
+    "*://*.limhenry.xyz/*"
   ],
   "background": {
     "scripts": ["background.js"]
   },
   "content_scripts": [
     {
-      "matches": ["*://*.trot.to/*"],
+      "matches": ["*://*.limhenry.xyz/*"],
       "js": ["data_injector.js"],
       "run_at": "document_start"
     }

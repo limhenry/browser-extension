@@ -54,7 +54,7 @@ Both the `yarn build` and `yarn dev` commands described below require three argu
 
 1. `edition`, which is one of the editions described above
 2. `browser`, which is the browser you want to build for or develop against (`chrome` or `firefox`)
-3. `instance`, which is the full base URL for a go links instance (ex: `https://trot.to`)
+3. `instance`, which is the full base URL for a go links instance (ex: `https://go.limhenry.xyz`)
 
 ### Building for deployment
 
@@ -68,7 +68,7 @@ From the root directory:
 ```
 nvm use
 yarn install
-yarn build --edition=production --browser=chrome --instance=https://trot.to
+yarn build --edition=production --browser=chrome --instance=https://go.limhenry.xyz
 ```
 
 *Firefox:*
@@ -76,7 +76,7 @@ yarn build --edition=production --browser=chrome --instance=https://trot.to
 ```
 nvm use
 yarn install
-yarn build --edition=production --browser=firefox --instance=https://trot.to
+yarn build --edition=production --browser=firefox --instance=https://go.limhenry.xyz
 ```
 
 ### Building for development
@@ -94,7 +94,7 @@ From the root directory:
 ```
 nvm use
 yarn install
-yarn dev --edition=production --browser=chrome --instance=https://trot.to
+yarn dev --edition=production --browser=chrome --instance=https://go.limhenry.xyz
 ```
 
 *Firefox:*
@@ -102,7 +102,7 @@ yarn dev --edition=production --browser=chrome --instance=https://trot.to
 ```
 nvm use
 yarn install
-yarn dev --edition=production --browser=firefox --instance=https://trot.to
+yarn dev --edition=production --browser=firefox --instance=https://go.limhenry.xyz
 ```
 
 ## Specifying a go links instance

@@ -73,14 +73,15 @@ export class Background {
 
         if (fullShorcut !== '/') {
           fullShorcut = shortcut.destinationPrefix + fullShorcut;
-          fullShorcut += '?s=crx';
+          // fullShorcut += '?s=crx';
         }
         break;
       }
     }
 
     if (fullShorcut === undefined) {
-      fullShorcut = '/' + bareUrl + '?s=crx&sc=' + scheme;
+      // fullShorcut = '/' + bareUrl + '?s=crx&sc=' + scheme;
+      fullShorcut = '/' + bareUrl;
     }
 
     return {redirectUrl: getInstanceUrl() + fullShorcut};
@@ -94,34 +95,34 @@ export class Background {
     this.getInstanceUrlAsync().then(instanceUrl => {
       if (instanceUrl !== DEFAULT_INSTANCE) return;
 
-      this.api.tabs.query({currentWindow: true, url: '*://www.trot.to/getting-started'})
-          .then((tabs) => {
-            // If there is a tab matching this query, then the user was going through the walkthrough before they
-            // installed the extension. So reload that tab and focus on it so 1) the browser learns to treat
-            // "go/whatever" as a URL and 2) the user can continue the walkthrough experience.
-            if (tabs.length === 0) {
-              // then open a new tab next to the current tab
-              this.api.tabs.query({active: true}).then((tabs) => {
-                var createArgs = {
-                  url: 'https://go/'
-                };
+      // this.api.tabs.query({currentWindow: true, url: '*://www.trot.to/getting-started'})
+      //     .then((tabs) => {
+      //       // If there is a tab matching this query, then the user was going through the walkthrough before they
+      //       // installed the extension. So reload that tab and focus on it so 1) the browser learns to treat
+      //       // "go/whatever" as a URL and 2) the user can continue the walkthrough experience.
+      //       if (tabs.length === 0) {
+      //         // then open a new tab next to the current tab
+      //         this.api.tabs.query({active: true}).then((tabs) => {
+      //           var createArgs = {
+      //             url: 'https://go/'
+      //           };
 
-                if (tabs.length === 1) {
-                  createArgs.index = tabs[0].index + 1;
-                }
+      //           if (tabs.length === 1) {
+      //             createArgs.index = tabs[0].index + 1;
+      //           }
 
-                this.api.tabs.create(createArgs).then((newTab) => {
-                  this.api.tabs.onUpdated.addListener((tabId, changeInfo) => {
-                    if (tabId !== newTab.id) return;
+      //           this.api.tabs.create(createArgs).then((newTab) => {
+      //             this.api.tabs.onUpdated.addListener((tabId, changeInfo) => {
+      //               if (tabId !== newTab.id) return;
 
-                    if (changeInfo.status === 'loading') this.api.tabs.remove(newTab.id);
-                  });
-                });
-              });
-            } else {
-              this.api.tabs.update(tabs[0].id, {url: 'https://go/__init__', active: true});
-            }
-          });
+      //               if (changeInfo.status === 'loading') this.api.tabs.remove(newTab.id);
+      //             });
+      //           });
+      //         });
+      //       } else {
+      //         this.api.tabs.update(tabs[0].id, {url: 'https://go/__init__', active: true});
+      //       }
+      //     });
     });
   }
 
