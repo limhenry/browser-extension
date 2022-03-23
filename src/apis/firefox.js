@@ -6,19 +6,6 @@ export class Api {
       }
     };
 
-    this.storage = {
-      onChanged: {
-        addListener: browser.storage.onChanged.addListener
-      },
-      managed: {
-        get: browser.storage.managed.get
-      }
-    };
-
-    this.webRequest = {
-      onBeforeRequest: browser.webRequest.onBeforeRequest
-    };
-
     this.tabs = {
       query: browser.tabs.query,
       create: browser.tabs.create,

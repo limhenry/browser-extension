@@ -1,4 +1,4 @@
-import { DEFAULT_INSTANCE, getInstanceUrl } from '../config';
+import { getInstanceUrl } from '../config';
 
 
 export class Popup {

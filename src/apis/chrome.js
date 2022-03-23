@@ -10,19 +10,6 @@ export class Api {
       }
     };
 
-    this.storage = {
-      onChanged: {
-        addListener: (callback) => chrome.storage.onChanged.addListener(callback)
-      },
-      managed: {
-        get: browser.storage.managed.get
-      }
-    };
-
-    this.webRequest = {
-      onBeforeRequest: browser.webRequest.onBeforeRequest
-    };
-
     this.tabs = {
       query: browser.tabs.query,
       create: browser.tabs.create,
